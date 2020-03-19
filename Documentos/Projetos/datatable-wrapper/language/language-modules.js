@@ -1,0 +1,1 @@
+export { datatablePtBr } from './language-modules/datatable.pt-br.js';

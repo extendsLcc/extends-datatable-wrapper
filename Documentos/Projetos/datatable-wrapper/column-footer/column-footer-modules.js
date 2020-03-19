@@ -1,0 +1,1 @@
+export { footerSumCurrencyColumn } from "./column-footer-modules/sum-currency-column.js";
