@@ -1,6 +1,7 @@
 // import { moment } from "../../../../../../plugins/global/plugins.bundle.js";
-import "../../libs/jspdf.min.js"
-import "../../libs/jspdf.plugin.autotable.min.js";
+import "../../libs/jspdf/jspdf.min.js"
+import "../../libs/jspdf/jspdf.plugin.autotable.min.js";
+
 import {Orientation} from "./options/pdf-orientation.js";
 import {Unit} from "./options/pdf-unit.js";
 import {Format} from "./options/pdf-format.js";

@@ -1,4 +1,4 @@
-export const percentColumnSort = {
+export const percentSortColumn = {
     percentSort: {
         "percent-pre": function (a) {
             a = $(a).text()

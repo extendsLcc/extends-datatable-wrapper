@@ -1,4 +1,4 @@
-export const dateColumnSort = {
+export const dateSortColumn = {
     dateSort: {
         "date-pre": function (a) {
             return moment(a, "DD/MM/YYYY").toDate().getTime();

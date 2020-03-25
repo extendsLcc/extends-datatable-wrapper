@@ -1,4 +1,4 @@
-export const currencyColumnSort = {
+export const currencySortColumn = {
     currencyBrlSort: {
         "formatted-num-pre": function (a) {
             a = (a === "-" || a === "") ? 0 : a.replace(/[\s\.\$R]/g, "").replace(',', '.');
