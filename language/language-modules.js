@@ -1,1 +1,1 @@
-export { datatablePtBr } from './language-modules/datatable.pt-br.js';
+export { languagePtBrDatatable } from './language-modules/language-pt-br.datatable.js';
