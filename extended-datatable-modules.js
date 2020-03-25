@@ -20,9 +20,9 @@ export { currencySortColumn, dateSortColumn, percentSortColumn } from './column/
 
 /**
  * Datatable Buttons Modules
- * Modules for datatable action buttons
+ * Modules for datatable action button
  */
-export { columnVisibilityButton, excelButton, pdfButton, printButton } from './buttons/button-modules.js'
+export { columnVisibilityButton, excelButton, pdfButton, printButton } from './button/button-modules.js'
 
 /**
  * Datatable Language Modules
@@ -37,9 +37,9 @@ export { languagePtBrDatatable } from './language/language-modules.js'
  */
 export {
     ReportDefault, customReportDefault, SimpleDefault, customSimpleDefault
-} from '/default-options/default-options-modules.js'
+} from '/home/lucaslcc/Documentos/Projetos/datatable-wrapper/default-option/default-options-modules.js'
 
 /**
  *  Contains a single function that accepts a DefaultOptions as parameter do add default configurations parameter for all new created datatables
  */
-export { defineDatatableDefaultOptions } from 'default-options/default-option-factory.js'
+export { defineDatatableDefaultOptions } from 'default-option/default-option-factory.js'

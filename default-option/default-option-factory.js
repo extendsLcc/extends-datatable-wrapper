@@ -34,10 +34,10 @@ function defaultOptionsFactory( defaultOption ) {
 
 /**
  * Define default config options for datatable based on given DefaultOptions.
- * DefaultOptions modules are found in '/default-options/default-options/modules'.
+ * DefaultOptions modules are found in '/default-option/default-option/modules'.
  * Exemples:
  *  @example 1 - Using with class name.
- * 1 -  import { SimpleDefault } from '/default-options/default-options-modules.js'
+ * 1 -  import { SimpleDefault } from '/default-option/default-option-modules.js'
  * 2 -  defineDatatableDefaultOptions( SimpleDefault )
  *  // Will Add the following options to default datatable configuration
  *      @returns {
@@ -47,7 +47,7 @@ function defaultOptionsFactory( defaultOption ) {
  *      }
  *
  * @example 2 - Extending class attributes
- * 1 -  import { customSimpleDefault } from '/default-options/default-options-modules.js'
+ * 1 -  import { customSimpleDefault } from '/default-option/default-option-modules.js'
  * 2 -  defineDatatableDefaultOptions( customSimpleDefault( { exampleKey: 'exampleOption', columns: [{ title: 'columnTitleExample' }] } ) )
  *  // Will Add the following options to default datatable configuration
  *      @returns {
