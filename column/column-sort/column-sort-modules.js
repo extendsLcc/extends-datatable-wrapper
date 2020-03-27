@@ -3,6 +3,6 @@
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
 
-export { currencySortColumn } from './sort-modules/curency-brl-sort.js';
-export { percentSortColumn } from './sort-modules/percent-sort.js';
-export { dateSortColumn } from './sort-modules/date-sort.js';
+export { sortColumnCurrency } from './sort-modules/curency-brl-sort.js';
+export { sortColumnPercent } from './sort-modules/percent-sort.js';
+export { sortColumnDate } from './sort-modules/date-sort.js';

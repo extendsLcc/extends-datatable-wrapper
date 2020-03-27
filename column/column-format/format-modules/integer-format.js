@@ -4,17 +4,15 @@
  */
 
 import { FormatColumnDefault } from '../format-column-default.js';
+import { sortColumnInteger } from '../../column-sort/sort-modules/integer-sort.js';
 
 class FormatColumnInteger extends FormatColumnDefault {
 
     constructor( targetColumns, defaultValue ) {
 
-        super( targetColumns, defaultValue );
-        Object.assign( this, {
-            targets: targetColumns,
-            type: 'date',
-            render: this.renderMethod
-        } );
+        super( targetColumns, defaultValue, {
+            type: 'integer',
+        }, sortColumnInteger );
 
     }
 

@@ -4,16 +4,15 @@
  */
 
 import { FormatColumnDefault } from '../format-column-default.js';
+import { sortColumnPercent } from '../../column-sort/sort-modules/percent-sort.js';
 
 class FormatColumnPercent extends FormatColumnDefault {
 
     constructor( targetColumns, defaultValue ) {
 
-        super( targetColumns, defaultValue );
-        Object.assign( this, {
+        super( targetColumns, defaultValue, {
             type: 'percent',
-            render: this.renderMethod
-        } );
+        }, sortColumnPercent);
 
     }
 

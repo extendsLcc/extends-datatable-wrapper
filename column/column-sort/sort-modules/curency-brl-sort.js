@@ -3,19 +3,18 @@
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
 
-export const currencySortColumn = {
-    currencyBrlSort: {
-        "formatted-num-pre": function (a) {
-            a = (a === "-" || a === "") ? 0 : a.replace(/[\s\.\$R]/g, "").replace(',', '.');
-            return parseFloat(a);
-        },
+export const sortColumnCurrency = {
+    'currency-brl-pre': function ( a ) {
+        // TODO app util parseCurrency/unformatCurrency
+        a = ( a === '-' || a === '' ) ? 0 : a.replace( /[\s\.\$R]/g, '' ).replace( ',', '.' );
+        return parseFloat( a );
+    },
 
-        "formatted-num-asc": function (a, b) {
-            return a - b;
-        },
+    'currency-brl-asc': function ( a, b ) {
+        return a - b;
+    },
 
-        "formatted-num-desc": function (a, b) {
-            return b - a;
-        }
+    'currency-brl-desc': function ( a, b ) {
+        return b - a;
     }
 };

@@ -4,16 +4,15 @@
  */
 
 import { FormatColumnDefault } from "../format-column-default.js";
+import { sortColumnDate } from '../../column-sort/sort-modules/date-sort.js';
 
 class FormatColumnDate extends FormatColumnDefault{
 
     constructor( targetColumns, defaultValue ) {
 
-        super(targetColumns, defaultValue );
-        Object.assign( this,   {
-            type: 'date',
-            render: this.renderMethod
-        } );
+        super(targetColumns, defaultValue, {
+            type: 'date-format',
+        }, sortColumnDate );
 
     }
 

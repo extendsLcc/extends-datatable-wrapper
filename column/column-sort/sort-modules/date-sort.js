@@ -3,18 +3,17 @@
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
 
-export const dateSortColumn = {
-    dateSort: {
-        "date-pre": function (a) {
-            return moment(a, "DD/MM/YYYY").toDate().getTime();
-        },
+export const sortColumnDate = {
+    'date-format-pre': function ( a ) {
+        // TODO IMPORT MOMENT
+        return moment( a, 'DD/MM/YYYY' ).toDate().getTime();
+    },
 
-        "date-asc": function (a, b) {
-            return a - b;
-        },
+    'date-format-asc': function ( a, b ) {
+        return a - b;
+    },
 
-        "date-desc": function (a, b) {
-            return b - a;
-        }
+    'date-format-desc': function ( a, b ) {
+        return b - a;
     }
 };
