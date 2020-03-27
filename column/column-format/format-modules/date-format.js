@@ -1,19 +1,29 @@
-import { ColumnFormatDefault } from "../column-format-default.js";
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
 
-class DateFormat extends ColumnFormatDefault{
+import { FormatColumnDefault } from "../format-column-default.js";
 
-    constructor( targetColumns ) {
+class FormatColumnDate extends FormatColumnDefault{
 
-        super();
+    constructor( targetColumns, defaultValue ) {
+
+        super(targetColumns, defaultValue );
         Object.assign( this,   {
-            targets: targetColumns,
             type: 'date',
             render: this.renderMethod
         } );
 
     }
 
-    renderMethod(columnValue) {
+    renderMethod(columnValue, defaultValue = this.defaultValue) {
+
+        if ( !columnValue.date ){
+
+            return defaultValue;
+
+        }
 
         //  TODO moduling App Util
         return AppUtil.formatDate( columnValue.date );
@@ -24,6 +34,25 @@ class DateFormat extends ColumnFormatDefault{
 
 /**
  * Format targeted columns from dateFormat 'YYYY-MM-DD' to dateFormat 'DD/MM/YYYY'
- * @param {targetColumns} targetColumns array of collumns to be formated
+ * @example
+ *  $( '#id' ).Datatable({
+ *      column:[
+ *          {data: 'someText'}
+ *          {data: 'someDate', className:'date-format'}
+ *          {data: 'anotherText'}
+ *          {data: 'anotherDate', className:'date-format'}
+ *      ],
+ *      columnDefs: [
+ *          formatColumnDate( [2, 4] );
+ *          // OR
+ *          // formatColumnDate( '.date-format' );
+ *      ]
+ *  })
+ * @param targetColumns - targetColumns array of columns to be formatted.
+ * @param - Default = '--/--/----'. Value to appear if data retrieved from column is null | undefined.
+ * @return FormatColumnDate
+ * @see {@link https://datatables.net/reference/option/columnDefs| ColumnDefs}
+ * @see {@link https://datatables.net/reference/option/columnDefs.targets| ColumnDefs Targets}
+ * @see {@link https://datatables.net/reference/option/columns.render| Columns.Render}
  */
-export const dateFormatColumn = targetColumns => new DateFormat( targetColumns );
+export const formatColumnDate = ( targetColumns, defaultValue = '--/--/----') => new FormatColumnDate( targetColumns, defaultValue );

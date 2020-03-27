@@ -1,4 +1,9 @@
-export const searchBoxCustomize = (datatableApi) => {
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
+export const searchBoxCustomize = ( datatableApi ) => {
 
     $( $( datatableApi.container() ).find( '.dataTables_filter' ) )
         .addClass( 'w-100' )

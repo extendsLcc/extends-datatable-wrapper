@@ -1,3 +1,8 @@
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 import { DefaultOption } from '../default-option.js';
 
 
@@ -6,11 +11,31 @@ import { languagePtBrDatatable } from '../../language/language-modules/language-
 import { columnVisibilityButton, printButton, excelButton, pdfButton } from '../../button/button-modules.js';
 
 /**
- *
+ * Returns the defined following Datatable Options parameters.
+ * @example
+ * return {
+ *      responsive: true,
+ *      processing: true,
+ *      language:   pt-BR,
+ *      buttons: [
+ *          columnVisibityButton,
+ *          printButton,
+ *          excelButton,
+ *          pdfButton
+ *      ]
+ *      lengthMenu: [
+ *          [10, 25, 50, 100, 200, -1]
+ *          [10, 25, 50, 100, 200, 'Todos']
+ *      ],
+ *      dom: 'fBtrilp'
+ *   };
+ * @see {@link https://datatables.net/reference/option/| DataTable Options}
+ * @see {@link https://datatables.net/reference/option/dom| DataTable option dom}
+ * @see {@link https://datatables.net/reference/option/buttons| DataTable option buttons}
  */
 export class ReportDefault extends DefaultOption {
 
-    constructor( newOptions = null ) {
+    constructor( newOptions ) {
 
         super( {
             responsive: true,
@@ -37,6 +62,34 @@ export class ReportDefault extends DefaultOption {
 
 }
 
+
+/**
+ * @function customSimpleDefault
+ * Returns a merge of the given Datatable Options with the defined following Datatable Options parameters.
+ * @example
+ * return {
+ *      responsive: true,
+ *      processing: true,
+ *      language:   pt-BR,
+ *      buttons: [
+ *          columnVisibityButton,
+ *          printButton,
+ *          excelButton,
+ *          pdfButton
+ *      ]
+ *      lengthMenu: [
+ *          [10, 25, 50, 100, 200, -1]
+ *          [10, 25, 50, 100, 200, 'Todos']
+ *      ],
+ *      dom: 'fBtrilp'
+ *      ...newOptions
+ *   };
+ * @param newOptions - A literal Object containing Datatable Options parameters.
+ * @returns {DefaultOption} -
+ * @see {@link https://datatables.net/reference/option/| DataTable Options}
+ * @see {@link https://datatables.net/reference/option/dom| DataTable option dom}
+ * @see {@link https://datatables.net/reference/option/buttons| DataTable option buttons}
+ */
 export const customReportDefault = ( newOptions ) => {
 
     return new ReportDefault( newOptions )

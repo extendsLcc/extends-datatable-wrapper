@@ -1,3 +1,8 @@
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 export const currencySortColumn = {
     currencyBrlSort: {
         "formatted-num-pre": function (a) {

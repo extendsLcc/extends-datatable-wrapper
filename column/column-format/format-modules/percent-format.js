@@ -1,22 +1,26 @@
-import { ColumnFormatDefault } from "../column-format-default.js";
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
 
-class PercentFormat extends ColumnFormatDefault{
+import { FormatColumnDefault } from '../format-column-default.js';
 
-    constructor( targetColumns ) {
+class FormatColumnPercent extends FormatColumnDefault {
 
-        super();
-        Object.assign( this,   {
-            targets: targetColumns,
+    constructor( targetColumns, defaultValue ) {
+
+        super( targetColumns, defaultValue );
+        Object.assign( this, {
             type: 'percent',
             render: this.renderMethod
         } );
 
     }
 
-    renderMethod(columnValue) {
+    renderMethod( columnValue, defaultValue = this.defaultValue ) {
 
         //  TODO moduling App Util
-        return `<span class='${data >= 100 ? 'text-success' : 'text-danger'}'> ${AppUtil.maskPercent(data)} </span>`;
+        return `<span class='${ data >= 100 ? 'text-success' : 'text-danger' }'> ${ AppUtil.maskPercent( data || defaultValue ) } </span>`;
 
     }
 
@@ -24,7 +28,25 @@ class PercentFormat extends ColumnFormatDefault{
 
 /**
  * Format targeted columns to number percent format.
- *  If target column has null value then return formated 0.
- * @param {targetColumns} targetColumns array of collumns to be formated
+ * @example
+ *  $( '#id' ).Datatable({
+ *      column:[
+ *          {data: 'someText'}
+ *          {data: 'somePercent', className:'percent-format'}
+ *          {data: 'anotherText'}
+ *          {data: 'anotherPercent', className:'percent-format'}
+ *      ],
+ *      columnDefs: [
+ *          formatColumnPercent( [2, 4] );
+ *          // OR
+ *          // formatColumnPercent( '.percent-format' );
+ *      ]
+ *  })
+ * @param targetColumns - ColumnDefs.target to be formatted
+ * @param defaultValue - Default = 0. Value to appear if data retrieved from column is null | undefined | cannot be formatted.
+ * @returns FormatColumnPercent
+ * @see {@link https://datatables.net/reference/option/columnDefs| ColumnDefs}
+ * @see {@link https://datatables.net/reference/option/columnDefs.targets| ColumnDefs Targets}
+ * @see {@link https://datatables.net/reference/option/columns.render| Columns.Render}
  */
-export const percentFormatColumn = targetColumns => new PercentFormat( targetColumns );
+export const formatColumnPercent = ( targetColumns, defaultValue = 0) => new FormatColumnPercent( targetColumns, defaultValue );

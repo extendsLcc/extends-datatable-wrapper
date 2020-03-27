@@ -1,3 +1,8 @@
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 export class DefaultOption {
 
     constructor( defaultOptions = null, newOptions = null ) {

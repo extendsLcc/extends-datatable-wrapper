@@ -1,3 +1,8 @@
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 export const dateSortColumn = {
     dateSort: {
         "date-pre": function (a) {

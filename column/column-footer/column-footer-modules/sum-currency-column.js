@@ -1,8 +1,28 @@
 // TODO import maskMoney istead of refering it directly - requires moduling AppUtil
 
 /**
- * Collect all rows currency values and sum in footer of specified column
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
+/**
+ * Collect all rows currency values and sum in footer of specified column.
  * @param targetColumns - Columns to be summed
+ * @example
+ *  $( '#id" ).Datatable({
+ *      column:[
+ *          {data: 'someText'}
+ *          {data: 'someMoneyValue' className:'money-format'}
+ *          {data: 'anotherText'}
+ *          {data: 'AnotherMoneyValue' className:'money-format'}
+ *      ],
+ *      footerCallback: footerSumCurrencyColumn( [2, 4] );
+ *      columnDefs: [
+ *          footerSumCurrencyColumn( [2, 4] );
+ *      ]
+ *  })
+ *  @see {@link https://datatables.net/reference/option/footerCallback| FooterCallback}
+ *  @see {@link https://datatables.net/reference/option/columnDefs.targets| ColumnDefs Targets}
  */
 export const footerSumCurrencyColumn = (targetColumns) => {
     return function (row, data, start, end, display, retorno) {

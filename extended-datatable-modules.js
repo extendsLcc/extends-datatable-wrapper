@@ -2,8 +2,14 @@
  * Column Format Modules
  * Modules for format the datatable value in one specific pattern
  */
+
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 export {
-    currencyFormatColumn, dateFormatColumn, integerFormatColumn, percentFormatColumn
+    formatColumnCurrency, formatColumnDate, formatColumnInteger, formatColumnPercent
 } from './column/column-format/column-format-modules.js'
 
 /**
@@ -33,13 +39,13 @@ export { languagePtBrDatatable } from './language/language-modules.js'
 
 /**
  * Datatable DefaultOptions modules
- * Modules with default configuration parameters for datatable. Main usage through 'defineDatatableDefaultOptions' module
+ * Modules with default configuration parameters for datatable. Main usage through 'extendDatatableDefaultOptions' module
  */
 export {
     ReportDefault, customReportDefault, SimpleDefault, customSimpleDefault
-} from '/home/lucaslcc/Documentos/Projetos/datatable-wrapper/default-option/default-options-modules.js'
+} from './default-option/default-options-modules.js'
 
 /**
  *  Contains a single function that accepts a DefaultOptions as parameter do add default configurations parameter for all new created datatables
  */
-export { defineDatatableDefaultOptions } from 'default-option/default-option-factory.js'
+export { extendDatatableDefaultOptions } from 'default-option/default-option-setter.js'

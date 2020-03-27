@@ -1,125 +1,62 @@
 /**
- * @author - Lucas LCC
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
 
-import {currencyColumnSort, dateColumnSort, percentColumnSort} from "./column-sort/column-sort-modules.js";
-import {datatablePtBr} from "./language/language-modules/datatable.pt-br.js";
+import {currencySortColumn, dateSortColumn, percentSortColumn} from "./column/column-sort/column-sort-modules.js";
+import {languagePtBrDatatable} from "./language/language-modules/language-pt-br.datatable.js";
 
-import {columnVisibilityButton, printButton, pdfButton, excelButton} from "./buttons/button-modules.js";
+import {columnVisibilityButton, printButton, pdfButton, excelButton} from "./button/button-modules.js";
+
+
+import { extendDatatableDefaultOptions } from './default-option/default-option-setter.js';
+
+/**
+ * This is a JSDOC
+ * @param a
+ * @returns {number}
+ */
+function t(a){
+    return 1;
+};
+
+
+import { footerSumCurrencyColumn } from './column/column-footer/column-footer-modules/sum-currency-column.js';
+
+footerSumCurrencyColumn()
+
+extendDatatableDefaultOptions()
+
+defaultSearchButton: function (datatableApi) {
+
+    // HARDCODED find current datatable filter option to apply DOM manipulations
+    $(this.DataTable().context[0].aanFeatures.f)
+        .addClass("w-100")
+        .find('label')
+        .addClass('kt-input-icon kt-input-icon--left input-group')
+        .append($(`
+                    <span class="kt-input-icon__icon kt-input-icon__icon--left pl-3">
+                        <span>
+                            <i class="la la-search" style="z-index: 1;"></i>
+                        </span>
+                    </span>
+                `))
+        .find("input")
+        .toggleClass("form-control-sm form-control-md")
+        .css({"z-index": 1});
+
+    $(this).on('column-visibility.dt', function (event, settings, colum, state) {
+
+        $(this).dataTable().api().columns.adjust().draw();
+
+    })
+
+}
 
 "use strict";
 var DatatableDefault = function () {
 
-
-    console.log("module exec")
-
-    // GET ATTRIBUTES AND PUBLIC METHODS
     return {
-
-        columnFormat: {
-            /**
-             * Format targeted columns to BRL currency format.
-             *  If target column has null value then return formated 0.
-             * @param {columnsTarget} targetColumns array of collumns to be formated
-             */
-            curencyFormatColumn: function (targetColumns) {
-                return {
-                    targets: targetColumns,
-                    type: 'formatted-num',
-                    render: function (data) {
-
-                        var value = {
-                            data
-                        };
-                        return (value['data'] != null) ? AppUtil.maskMoney(value['data']) : AppUtil.maskMoney(0);
-                    },
-                }
-            },
-
-            /**
-             * Format targeted columns to number percent format.
-             *  If target column has null value then return formated 0.
-             * @param {targetColumns} targetColumns array of collumns to be formated
-             */
-            percentFormatColumn: function (targetColumns) {
-                return {
-                    targets: targetColumns,
-                    type: 'percent',
-                    render: function (data) {
-                        data = data === null ? 0 : data;
-                        return '<span class=' + (data >= 100 ? 'text-success' : 'text-danger') + '>' + AppUtil.maskPercent(data) + '</span>';
-                    }
-                }
-            },
-
-            /**
-             * Format targeted columns from dateFormat 'YYYY-MM-DD' to dateFormat 'DD/MM/YYYY'
-             * @param {targetColumns} targetColumns array of collumns to be formated
-             */
-            dateFormatColumn: function (targetColumns) {
-                return {
-                    targets: targetColumns,
-                    type: 'date',
-                    render: function (whichDate) {
-                        return AppUtil.formatDate(whichDate.date);
-                    }
-                };
-            },
-
-            /**
-             * Format targeted Columns in integer format, if fail to convert to int return 0
-             * @param {*} targetColumns
-             */
-            integerFormatColumn: function (targetColumns) {
-                return {
-                    targets: targetColumns,
-                    type: 'integer',
-                    render: function (data) {
-                        let integerValue = parseInt(data)
-                        return integerValue ? integerValue : 0;
-                    }
-                }
-            }
-
-        },
-
-        /**
-         * Collect all row currency values and sum in footer of specified column
-         * @param targetColumn - Columns to be summed
-         */
-        footerSumCurrencyColumn: (targetColumns) => {
-            return function (row, data, start, end, display, retorno) {
-                var column = targetColumns;
-                var api = this.api(),
-                    data;
-                for (var x = 0; x < column.length; x++) {
-                    // Remove the formatting to get integer data for summation
-                    var intVal = function (i) {
-                        return typeof i === "string"
-                            ? i.replace(/[\R$,]/g, "") * 1
-                            : typeof i === "number"
-                                ? i
-                                : 0;
-                    };
-                    // Total over all pages
-                    var total = api
-                        .column(column[x], {page: "current"})
-                        .data()
-                        .reduce(function (a, b) {
-                            return intVal(a) + intVal(b);
-                        }, 0);
-                    // Update footer
-                    $(api.column(column[x]).footer()).html(
-                        AppUtil.maskMoney(total)
-                    );
-                }
-            }
-        },
-
-        // @deprecated
-        defaultButtonsEvents: function () {
-
-        },
 
         /**
          * Group default datatable options with new ones passed by parameter
@@ -128,28 +65,8 @@ var DatatableDefault = function () {
          */
         addToDefaultSetup: function (newAttributes) {
 
-
-            let pdfbtn = [
-                columnVisibilityButton,
-                printButton,
-                pdfButton,
-                excelButton,
-            ];
-            console.log(printButton)
-            console.log(pdfbtn);
-            let defaultSetup = {
-                responsive: true,
-                processing: true,
-                dom: `<'row'<'col-sm-6 col-md-5 col-lg-4 text-left mb-2 mb-md-0'f><'col-sm-6 col-md-7 col-lg-8 text-right'B>>
-            <'row'<'col-sm-12'tr>>
-            <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
-                buttons: pdfbtn,
-                language: defaults.language,
                 initComplete: defaults.defaultSearchButton,
-                lengthMenu: [
-                    [10, 25, 50, 100, 200, -1],
-                    [10, 25, 50, 100, 200, "Todos"]
-                ],
+
             };
 
             return Object.assign({}, defaultSetup, newAttributes);

@@ -1,13 +1,18 @@
 
 
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 import { DefaultOption } from './default-option.js'
 
 /**
  * Get an class that extends DefaultObject and return an instance of it. If is given an instance of a class that extends
  * DefaultObject, return it without changing it.
- *
+ * @private
  * @throws Error - Throws Exception if parameter given is not a class or instance that extends DefaultObject.
- * @param defaultOption - class T extends DefaultOption | Object instanceof DefaultOption
+ * @param defaultOption - class that extends DefaultOption | Object instanceof DefaultOption
  * @returns {instanceof DefaultOption} - An instance of DefaultOption
  */
 function defaultOptionsFactory( defaultOption ) {
@@ -37,32 +42,32 @@ function defaultOptionsFactory( defaultOption ) {
  * DefaultOptions modules are found in '/default-option/default-option/modules'.
  * Exemples:
  *  @example 1 - Using with class name.
- * 1 -  import { SimpleDefault } from '/default-option/default-option-modules.js'
- * 2 -  defineDatatableDefaultOptions( SimpleDefault )
- *  // Will Add the following options to default datatable configuration
- *      @returns {
- *          responsive: true
- *          processing: true
- *          language: languagePtBrDatatable
- *      }
+ *    import { SimpleDefault } from '/default-option/default-option-modules.js'
+ *    extendDatatableDefaultOptions( SimpleDefault )
+ *    // Will Add the following options to default datatable configuration
+ *       returns {
+ *           responsive: true
+ *           processing: true
+ *           language: languagePtBrDatatable
+ *       }
  *
  * @example 2 - Extending class attributes
- * 1 -  import { customSimpleDefault } from '/default-option/default-option-modules.js'
- * 2 -  defineDatatableDefaultOptions( customSimpleDefault( { exampleKey: 'exampleOption', columns: [{ title: 'columnTitleExample' }] } ) )
- *  // Will Add the following options to default datatable configuration
- *      @returns {
+ *     import { customSimpleDefault } from '/default-option/default-option-modules.js'
+ *     extendDatatableDefaultOptions( customSimpleDefault( { exampleKey: 'exampleOption', columns: [{ title: 'columnTitleExample' }] } ) )
+ *     // Will Add the following options to default datatable configuration
+ *       returns {
  *          responsive: true
  *          processing: true
  *          language: languagePtBrDatatable
  *          exampleKey: 'exampleOption',
  *          columns: [
- *              { title: 'columnTitleExample' },
- *             ],
- *      }
- *
+ *               { title: 'columnTitleExample' },
+ *              ],
+ *       }
  * @throws Error - Throws Exception if parameter given is not a class or instance that extends DefaultObject.
- * @param typeof DefaultOption -
+ * @param typeof DefaultOption
  * @returns {*|void}
+ * @see {@link SimpleDefault} and {@link customSimpleDefault} for they definition
  */
 export const defineDatatableDefaultOptions = ( defaultOption ) => {
 

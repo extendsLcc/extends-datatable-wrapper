@@ -1,3 +1,8 @@
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 function buildFormats() {
 
     const patterns = ['a', 'b', 'c']

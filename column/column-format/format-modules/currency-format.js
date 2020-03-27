@@ -1,22 +1,26 @@
-import { ColumnFormatDefault } from "../column-format-default.js";
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
 
-class CurrencyFormat extends ColumnFormatDefault{
+import { FormatColumnDefault } from "../format-column-default.js";
 
-    constructor( targetColumns ) {
+class FormatColumnCurrency extends FormatColumnDefault{
 
-        super();
+    constructor( targetColumns, defaultValue ) {
+
+        super( targetColumns, defaultValue );
         Object.assign( this,   {
-            targets: targetColumns,
             type: 'formatted-num',
             render: this.renderMethod
         } );
 
     }
 
-    renderMethod(columnValue) {
+    renderMethod(columnValue, defaultValue = this.defaultValue) {
 
         //  TODO moduling App Util
-        return AppUtil.maskMoney( columnValue || 0 );
+        return AppUtil.maskMoney( columnValue || defaultValue );
 
     }
 
@@ -24,8 +28,27 @@ class CurrencyFormat extends ColumnFormatDefault{
 
 
 /**
- * Format targeted columns to BRL currency format.
- *  If target column has null value then return formated 0.
- * @param {columnsTarget} targetColumns array of collumns to be formated
+ * Render the targeted columns to BRL currency format.
+ * If target column has null or undefined value then return defaultValue parameter.
+ * @example
+ *  $( '#id' ).Datatable({
+ *      column:[
+ *          {data: 'someText'}
+ *          {data: 'someFloatMoney', className:'money-format'}
+ *          {data: 'anotherText'}
+ *          {data: 'anotherFloatMoney', className:'money-format'}
+ *      ],
+ *      columnDefs: [
+ *          formatColumnCurrency( [2, 4] );
+ *          // OR
+ *          // formatColumnCurrency( '.money-format' );
+ *      ]
+ *  })
+ * @param targetColumns - ColumnDefs.target to be formatted.
+ * @param defaultValue - Default = 0. Value to appear if data retrieved from column is null | undefined | cannot be formatted.
+ * @returns FormatColumnCurrency
+ * @see {@link https://datatables.net/reference/option/columnDefs| ColumnDefs}
+ * @see {@link https://datatables.net/reference/option/columnDefs.targets| ColumnDefs Targets}
+ * @see {@link https://datatables.net/reference/option/columns.render| Columns.Render}
  */
-export const currencyFormatColumn = targetColumns => new CurrencyFormat( targetColumns );
+export const formatColumnCurrency = ( targetColumns, /** number?| 0 */defaultValue = 0) => new FormatColumnCurrency( targetColumns, defaultValue );

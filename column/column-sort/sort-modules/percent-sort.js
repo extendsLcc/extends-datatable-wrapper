@@ -1,3 +1,8 @@
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 export const percentSortColumn = {
     percentSort: {
         "percent-pre": function (a) {
@@ -14,4 +19,4 @@ export const percentSortColumn = {
             return b - a;
         },
     },
-}
+};

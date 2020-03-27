@@ -1,4 +1,10 @@
 // import { moment } from "../../../../../../plugins/global/plugins.bundle.js";
+
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 import "../../libs/jspdf/jspdf.min.js"
 import "../../libs/jspdf/jspdf.plugin.autotable.min.js";
 

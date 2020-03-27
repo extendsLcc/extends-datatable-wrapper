@@ -1,3 +1,8 @@
+/**
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ */
+
 export const languagePtBrDatatable = {
     "sEmptyTable": "Nenhum registro encontrado",
     "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
