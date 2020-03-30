@@ -1,5 +1,3 @@
-// import { moment } from "../../../../../../plugins/global/plugins.bundle.js";
-
 /**
  *  @project: datatable-wrapper
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
@@ -26,6 +24,10 @@ export class exportTablePdf {
     }
 
     constructor(datatableApi, exportableColumns, {orientation, measureUnit, pageFormat}) {
+
+        if ( !jsPDF ){
+            throw new Error('jsPdf library not found! Cannot export pdf without it.');
+        }
 
         this.datatableApi = datatableApi;
         this.exportableColumns = datatableApi.columns(exportableColumns);

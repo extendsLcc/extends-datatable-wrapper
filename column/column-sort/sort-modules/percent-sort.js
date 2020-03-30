@@ -5,7 +5,8 @@
 
 export const sortColumnPercent = {
     'percent-pre': function ( a ) {
-        a = $( a ).text()
+        a = a.innerText;
+        // TODO unformatPercent
         a = ( a === '-' || a === '' ) ? 0 : a.replace( /\./g, '' ).replace( ',', '.' );
         return parseFloat( a );
     },
