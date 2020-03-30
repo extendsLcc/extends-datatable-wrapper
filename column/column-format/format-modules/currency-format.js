@@ -5,7 +5,6 @@
 
 import { FormatColumnDefault } from '../format-column-default.js';
 import { sortColumnCurrency } from  '../../column-sort/sort-modules/curency-brl-sort.js'
-import { extendColumnSort } from '../../column-sort/column-sort-initialize.js';
 
 class FormatColumnCurrency extends FormatColumnDefault {
 

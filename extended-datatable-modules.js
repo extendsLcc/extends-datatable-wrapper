@@ -25,13 +25,13 @@ export {
  * Datatable ColumnFooter Modules
  * Modules to build datatable column footer by values of all rows in that column
  */
-export { footerSumCurrencyColumn } from './column/column-footer/column-footer-modules.js'
+export { sumCurrencyColumnFooter } from './column/column-footer/column-footer-modules.js'
 
 /**
  * Datatable Sort Column Modules
  * Modules for sorting columns fomated in one specific pattern
  */
-export { currencySortColumn, dateSortColumn, percentSortColumn } from './column/column-sort/column-sort-modules.js'
+export { sortColumnCurrency, sortColumnDate, sortColumnPercent } from './column/column-sort/column-sort-modules.js'
 
 /**
  * Datatable Buttons Modules
@@ -57,4 +57,4 @@ export {
 /**
  *  Contains a single function that accepts a DefaultOptions as parameter do add default configurations parameter for all new created datatables
  */
-export { extendDatatableDefaultOptions } from 'default-option/default-option-setter.js'
+export { extendDatatableDefaultOptions } from 'default-option/default-option-initialize.js'
