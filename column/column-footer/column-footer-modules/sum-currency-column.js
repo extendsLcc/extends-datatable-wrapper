@@ -1,4 +1,6 @@
-// TODO import maskMoney istead of refering it directly - requires moduling AppUtil
+// TODO import maskMoney instead of referring it directly - requires moduling AppUtil
+// TODO this is actually a Datatable callback 'footerCallback' check the consistency of file location
+// TODO analyze code to optimize
 
 /**
  *  @project: datatable-wrapper
@@ -16,15 +18,15 @@
  *          {data: 'anotherText'}
  *          {data: 'AnotherMoneyValue' className:'money-format'}
  *      ],
- *      footerCallback: footerSumCurrencyColumn( [2, 4] );
+ *      footerCallback: sumCurrencyColumnFooter( [2, 4] );
  *      columnDefs: [
- *          footerSumCurrencyColumn( [2, 4] );
+ *          sumCurrencyColumnFooter( [2, 4] );
  *      ]
  *  })
  *  @see {@link https://datatables.net/reference/option/footerCallback| FooterCallback}
  *  @see {@link https://datatables.net/reference/option/columnDefs.targets| ColumnDefs Targets}
  */
-export const footerSumCurrencyColumn = (targetColumns) => {
+export const sumCurrencyColumnFooter = ( targetColumns) => {
     return function (row, data, start, end, display, retorno) {
         var column = targetColumns;
         var api = this.api(),

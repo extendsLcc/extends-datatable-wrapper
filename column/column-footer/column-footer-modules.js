@@ -3,4 +3,4 @@
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
 
-export { footerSumCurrencyColumn } from "./column-footer-modules/sum-currency-column.js";
+export { sumCurrencyColumnFooter } from "./column-footer-modules/sum-currency-column.js";
