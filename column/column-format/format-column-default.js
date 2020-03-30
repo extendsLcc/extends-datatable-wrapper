@@ -5,12 +5,19 @@
 
 import { extendColumnSort } from '../column-sort/column-sort-initialize.js';
 
-/**
- *  @class FormatColumnDefault
- *  Placeholder for default values and polymorphism
- */
 export class FormatColumnDefault {
 
+    /**
+     * Create a columnDefsOptions object parameters given.
+     * @param targetColumns - columnDefs.targets
+     * @param defaultValue - DefaultValue of render method if columns.data is invalid.
+     * @param columnDefsOptions - New ColumnDefs options to be added.
+     * @param sortColumnModule - Optional - sortColumnModule to be applied if the format needs a specific sort logic.
+     * @return ColumnDefsOptions
+     * @see {@link https://datatables.net/reference/option/columnDefs| ColumnDefs}
+     * @see {@link https://datatables.net/reference/option/columnDefs.targets| ColumnDefs.targets }
+     * @see {@link https://datatables.net/reference/option/columns.render| Columns.render }
+     */
     constructor( targetColumns, defaultValue, columnDefsOptions, sortColumnModule ) {
 
         this.defaultValue = defaultValue;
