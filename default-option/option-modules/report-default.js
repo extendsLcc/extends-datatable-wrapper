@@ -3,7 +3,7 @@
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
 
-import { DefaultOption } from '../default-option.js';
+import { SimpleDefault } from './simple-default.js';
 
 import { columnVisibilityButton, printButton, excelButton, pdfButton } from '../../button/button-modules.js';
 
@@ -30,14 +30,12 @@ import { columnVisibilityButton, printButton, excelButton, pdfButton } from '../
  * @see {@link https://datatables.net/reference/option/dom| DataTable option dom}
  * @see {@link https://datatables.net/reference/option/buttons| DataTable option buttons}
  */
-export class ReportDefault extends DefaultOption {
+export class ReportDefault extends SimpleDefault {
 
     constructor( newOptions ) {
 
         super( {
-            responsive: true,
-            processing: true,
-            dom: `<'row'<'col-sm-6 col-md-5 col-lg-4 text-left mb-2 mb-md-0'f><'col-sm-6 col-md-7 col-lg-8 text-right'B>>
+            dom: `<'row'<'#datatable-filter-container .col-12 col-sm-6 col-md-5 col-lg-4 text-left mb-2 mb-md-0'f><'col-sm-6 col-md-7 col-lg-8 text-right'B>>
                 <'row'<'col-sm-12'tr>>
                 <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
             buttons: [
@@ -46,8 +44,7 @@ export class ReportDefault extends DefaultOption {
                 excelButton,
                 pdfButton
             ],
-            language: languagePtBrDatatable,
-            // initComplete: defaults.defaultSearchButton,
+            // initComplete: customizeTableInit( [  ] ),
             lengthMenu: [
                 [10, 25, 50, 100, 200, -1],
                 [10, 25, 50, 100, 200, 'Todos']
