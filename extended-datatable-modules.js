@@ -1,11 +1,20 @@
 /**
- * Column Format Modules
- * Modules for format the datatable value in one specific pattern
+ *  @project: datatable-wrapper
+ *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
 
 /**
- *  @project: datatable-wrapper
- *  @author: @extendslcc - <lucas.lcc@hotmail.com>
+ * ********************************************************************************************************************
+ * !!!! PREFER TO IMPORT FROM INDIVIDUAL FILES OVER THIS ONE !!!!
+ * - This file is mostly to serve as reference of existing modules
+ * - If any module is imported from this files, all modules are loaded and parsed in the browser!! even unused ones,
+ *   and you don't want that!
+ * ********************************************************************************************************************
+ */
+
+/**
+ * Column Format Modules
+ * Modules for format the datatable value in one specific pattern
  */
 
 export {

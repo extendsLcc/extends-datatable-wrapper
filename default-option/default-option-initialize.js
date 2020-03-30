@@ -1,5 +1,3 @@
-
-
 /**
  *  @project: datatable-wrapper
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
@@ -61,17 +59,17 @@ function defaultOptionsFactory( defaultOption ) {
  *          language: languagePtBrDatatable
  *          exampleKey: 'exampleOption',
  *          columns: [
- *               { title: 'columnTitleExample' },
+ *                  { title: 'columnTitleExample' },
  *              ],
  *       }
  * @throws Error - Throws Exception if parameter given is not a class or instance that extends DefaultObject.
- * @param typeof DefaultOption
- * @returns {*|void}
+ * @param DefaultOption
+ * @returns {void}
  * @see {@link SimpleDefault} and {@link customSimpleDefault} for they definition
  */
 export const extendDatatableDefaultOptions = ( defaultOption ) => {
 
-    $.extend( true, $.fn.dataTable.defaults, defaultOptionsFactory( defaultOption ) );
+    jQuery.extend( true, jQuery.fn.dataTable.defaults, defaultOptionsFactory( defaultOption ) );
 
 };
 
@@ -83,6 +81,6 @@ export const extendDatatableDefaultOptions = ( defaultOption ) => {
  */
 export const overrideDatatableDefaultOptions = ( defaultOption ) => {
 
-    $.fn.dataTable.defaults = defaultOptionsFactory( defaultOption );
+    jQuery.fn.dataTable.defaults = defaultOptionsFactory( defaultOption );
 
 };

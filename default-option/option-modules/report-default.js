@@ -5,9 +5,6 @@
 
 import { DefaultOption } from '../default-option.js';
 
-
-import { languagePtBrDatatable } from '../../language/language-modules/language-pt-br.datatable.js';
-
 import { columnVisibilityButton, printButton, excelButton, pdfButton } from '../../button/button-modules.js';
 
 /**
