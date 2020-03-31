@@ -1,0 +1,10 @@
+{
+  "name": "datatable-wrapper",
+  "version": "0.0.1",
+  "description": "Default configs for datatable and helper methods.",
+  "main": "index.js",
+  "repository": "git@gitlab.com:extendsLcc/extends-datatable-wrapper.git",
+  "author": "extendslcc <lucas.lcc@hotmail.com>",
+  "license": "",
+  "dependencies": {}
+}

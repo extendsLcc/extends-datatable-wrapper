@@ -3,9 +3,9 @@
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
 
-export const searchBoxCustomize = ( datatableApi ) => {
+export const customizeSearchBox = ( datatableApi ) => {
 
-    $( $( datatableApi.container() ).find( '.dataTables_filter' ) )
+    $( datatableApi.aanFeatures.f )
         .addClass( 'w-100' )
         .find( 'label' )
         .addClass( 'kt-input-icon kt-input-icon--left input-group' )

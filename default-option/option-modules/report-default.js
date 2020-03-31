@@ -6,6 +6,9 @@
 import { SimpleDefault } from './simple-default.js';
 
 import { columnVisibilityButton, printButton, excelButton, pdfButton } from '../../button/button-modules.js';
+import { joinCallbackMethods } from '../../callback/callback-modules/callback-join.js';
+import { customizeSearchBox } from '../../callback/callback-modules/init-complete/init-complete-modules/customize-searchbox.js';
+import { addColumnVisibilityEvent } from '../../callback/callback-modules/init-complete/init-complete-modules/event-column-visibility.js';
 
 /**
  * Returns the defined following Datatable Options parameters.
@@ -44,7 +47,7 @@ export class ReportDefault extends SimpleDefault {
                 excelButton,
                 pdfButton
             ],
-            // initComplete: customizeTableInit( [  ] ),
+            initComplete: joinCallbackMethods( [ customizeSearchBox, addColumnVisibilityEvent] ),
             lengthMenu: [
                 [10, 25, 50, 100, 200, -1],
                 [10, 25, 50, 100, 200, 'Todos']
@@ -88,4 +91,4 @@ export const customReportDefault = ( newOptions ) => {
 
     return new ReportDefault( newOptions )
 
-}
+};
