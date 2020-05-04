@@ -16,9 +16,15 @@ class FormatColumnInteger extends FormatColumnDefault {
 
     }
 
-    renderMethod( columnValue, defaultValue = this.defaultValue ) {
+    renderMethod( columnValue ) {
 
-        return parseInt( columnValue ) || defaultValue;
+        console.log( arguments );
+        console.log( this );
+
+        const integer = parseInt( columnValue );
+
+        // @see unary operator {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Unary_plus}
+        return +( integer !== 0 /*if false yields 0*/ ) && integer || this.defaultValue;
 
     }
 

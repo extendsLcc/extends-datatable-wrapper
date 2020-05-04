@@ -1,4 +1,4 @@
-/**
+/**data
  *  @project: datatable-wrapper
  *  @author: @extendslcc - <lucas.lcc@hotmail.com>
  */
@@ -19,7 +19,7 @@ class FormatColumnPercent extends FormatColumnDefault {
     renderMethod( columnValue, defaultValue = this.defaultValue ) {
 
         //  TODO moduling App Util
-        return `<span class='${ data >= 100 ? 'text-success' : 'text-danger' }'> ${ AppUtil.maskPercent( data || defaultValue ) } </span>`;
+        return `<span class='${ columnValue >= 100 ? 'text-success' : 'text-danger' }'> ${ AppUtil.maskPercent( columnValue || defaultValue ) } </span>`;
 
     }
 

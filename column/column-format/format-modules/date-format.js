@@ -18,14 +18,14 @@ class FormatColumnDate extends FormatColumnDefault{
 
     renderMethod(columnValue, defaultValue = this.defaultValue) {
 
-        if ( !columnValue.date ){
+        if ( !columnValue ){
 
             return defaultValue;
 
         }
 
         //  TODO moduling App Util
-        return AppUtil.formatDate( columnValue.date );
+        return AppUtil.formatDate( columnValue );
 
     }
 

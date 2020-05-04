@@ -21,8 +21,8 @@ export class FormatColumnDefault {
     constructor( targetColumns, defaultValue, columnDefsOptions, sortColumnModule ) {
 
         this.defaultValue = defaultValue;
-        this.targetColumns = targetColumns;
-        this.render = this.renderMethod;
+        this.targets = targetColumns;
+        this.render = this.renderMethod.bind( this );
         Object.assign( this, columnDefsOptions );
 
         if (sortColumnModule) {
