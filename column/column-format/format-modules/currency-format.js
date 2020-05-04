@@ -8,18 +8,19 @@ import { sortColumnCurrency } from  '../../column-sort/sort-modules/curency-brl-
 
 class FormatColumnCurrency extends FormatColumnDefault {
 
-    constructor( targetColumns, defaultValue ) {
+    constructor( targetColumns, defaultValue, defaultNaNValue ) {
 
         super( targetColumns, defaultValue, {
             type: 'currency-brl',
         }, sortColumnCurrency );
-
+        this.defaultNaNValue = defaultNaNValue;
     }
 
-    renderMethod( columnValue, defaultValue = this.defaultValue ) {
+    renderMethod( columnValue, defaultValue = this.defaultValue, defaultNaNValue = this.defaultNaNValue ) {
 
         //  TODO moduling App Util
-        return Intl.NumberFormat( 'pt-BR', { style: 'currency', currency: 'BRL' } ).format( columnValue || defaultValue );
+        return isNaN( columnValue ) ? defaultNaNValue :
+            Intl.NumberFormat( 'pt-BR', { style: 'currency', currency: 'BRL' } ).format( columnValue || defaultValue );
 
     }
 
@@ -49,4 +50,4 @@ class FormatColumnCurrency extends FormatColumnDefault {
  * @see {@link https://datatables.net/reference/option/columnDefs.targets| ColumnDefs Targets}
  * @see {@link https://datatables.net/reference/option/columns.render| Columns.Render}
  */
-export const formatColumnCurrency = ( targetColumns, /** number?| 0 */defaultValue = 0 ) => new FormatColumnCurrency( targetColumns, defaultValue );
+export const formatColumnCurrency = ( targetColumns, /** number?| 0 */defaultValue = 0, defaultNaNValue ) => new FormatColumnCurrency( targetColumns, defaultValue, defaultNaNValue );
